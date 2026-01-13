@@ -53,10 +53,17 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "Step 4: Configuring terminal..."
+echo "Step 5: Configuring terminal..."
 bash "$SCRIPTS_FOLDER/edit-fastfetch.sh"
 if [ $? -ne 0 ]; then
     echo "✗ Fastfetch configuration script failed!"
+    exit 1
+fi
+
+echo "Step 6: Installing Darkened State theme..."
+bash "$SCRIPTS_FOLDER/theme-darkened-state.sh"
+if [ $? -ne 0 ]; then
+    echo "✗ Failed to install theme!"
     exit 1
 fi
 
