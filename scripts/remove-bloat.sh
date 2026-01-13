@@ -5,18 +5,33 @@
 echo "Removing unwanted software..."
 echo ""
 
-# List of packages to remove
+# Check if running as root
+if [ "$EUID" -eq 0 ]; then
+    echo "Don't run as root!"
+    exit 1
+fi
+
+# Remove packages with dependencies together (must be removed as a group)
+echo "Removing fd and its dependents..."
+sudo pacman -Rns --noconfirm fd elephant-files 2>/dev/null && echo "✓ Removed fd and elephant-files" || echo "⊘ Already removed or not installed"
+echo ""
+
+echo "Removing ripgrep and its dependents..."
+sudo pacman -Rns --noconfirm ripgrep opencode 2>/dev/null && echo "✓ Removed ripgrep and opencode" || echo "⊘ Already removed or not installed"
+echo ""
+
+echo "Removing cups printing stack..."
+sudo pacman -Rns --noconfirm cups cups-filters cups-pdf cups-browsed system-config-printer 2>/dev/null && echo "✓ Removed printing stack" || echo "⊘ Already removed or not installed"
+echo ""
+
+# List of individual packages to remove
 PACKAGES_TO_REMOVE=(
     # System info display
     "neofetch"
     
-    # Modern CLI tools, replacements for cat, ls, find, grep, cd. (I like old fashioned cmds)
+    # Modern CLI tools (I like old fashioned cmds)
     "bat"           # Better cat with syntax highlighting
     "eza"           # Better ls with colors/icons
-    "fd"            # Better find command
-    "elephant-files"  # Depends on fd
-    "ripgrep"       # Better grep for searching
-    "opencode"      # Depends on ripgrep
     "fzf"           # Fuzzy finder for interactive search
     "zoxide"        # Smart cd command
     
@@ -40,26 +55,13 @@ PACKAGES_TO_REMOVE=(
     "fcitx5-gtk"
     "fcitx5-qt"
     
-    # Printing stack (never print) - remove in correct order
-    "system-config-printer"  # GUI config tool
-    "cups-pdf"               # PDF printer (requires cups)
-    "cups-browsed"           # Network printer discovery (optional for cups)
-    "cups-filters"           # Required by cups
-    "cups"                   # Main print system
-    
     # Misc/unknown
     "aether"            # P2P forum software
-    "tobi-try"          # Tool fixed repetitive directories
+    "tobi-try"          # Tool for repetitive directories
     "impala"            # Terminal UI framework
 )
 
-# Check if running as root
-if [ "$EUID" -eq 0 ]; then
-    echo "Don't run as root!"
-    exit 1
-fi
-
-# Remove each package
+# Remove each individual package
 for package in "${PACKAGES_TO_REMOVE[@]}"; do
     if pacman -Qi "$package" &> /dev/null; then
         echo "Removing $package..."
