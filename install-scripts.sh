@@ -37,6 +37,14 @@ if [ $? -ne 0 ]; then
     echo "✗ Bloat removal script failed!"
     exit 1
 fi
+
+echo "Step 3: Removing desktop app bloatware..."
+bash "$SCRIPTS_FOLDER/delete-desktop-apps.sh"
+if [ $? -ne 0 ]; then
+    echo "✗ Bloat removal script failed!"
+    exit 1
+fi
+
 echo ""
 echo "============================"
 echo "Arch-Forge  - Complete      "
