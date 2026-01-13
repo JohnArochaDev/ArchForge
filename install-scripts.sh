@@ -46,6 +46,13 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+echo "Step 4: Removing desktop app bloatware..."
+bash "$SCRIPTS_FOLDER/add-fastfetch.sh"
+if [ $? -ne 0 ]; then
+    echo "✗ Fastfetch addition script failed!"
+    exit 1
+fi
+
 echo ""
 echo "============================"
 echo "Arch-Forge  - Complete      "
