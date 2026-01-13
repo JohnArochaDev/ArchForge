@@ -9,8 +9,8 @@ echo ""
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Go up one level, then into themes folder
-THEME_SOURCE="$SCRIPT_DIR/../themes/DarkenedState"
-THEME_DEST="$HOME/.config/omarchy/themes/DarkenedState"
+THEME_SOURCE="$SCRIPT_DIR/../themes/darkenedstate"
+THEME_DEST="$HOME/.config/omarchy/themes/darkenedstate"
 
 # Check if source theme exists
 if [ ! -d "$THEME_SOURCE" ]; then
