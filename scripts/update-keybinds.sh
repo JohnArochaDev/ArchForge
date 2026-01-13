@@ -8,13 +8,13 @@ TILING_CONFIG_FILE="$HOME/.local/share/omarchy/default/hypr/bindings/tiling-v2.c
 
 # Check if config files exist
 if [ ! -f "$CONFIG_FILE" ]; then
-  echo "Error: Config file not found at $CONFIG_FILE"
-  exit 1
+    echo "Error: Config file not found at $CONFIG_FILE"
+    exit 1
 fi
 
 if [ ! -f "$TILING_CONFIG_FILE" ]; then
-  echo "Error: Tiling config file not found at $TILING_CONFIG_FILE"
-  exit 1
+    echo "Error: Tiling config file not found at $TILING_CONFIG_FILE"
+    exit 1
 fi
 
 echo "Updating keybindings..."
@@ -35,21 +35,21 @@ sed -i '/bindd = SUPER, W.*killactive/d' "$CONFIG_FILE"
 # Add SUPER + Q to close windows
 NEW_CLOSE_CMD="bindd = SUPER, Q, Close window, killactive,"
 if ! grep -q "bindd = SUPER, Q.*killactive" "$CONFIG_FILE"; then
-  echo "$NEW_CLOSE_CMD" >> "$CONFIG_FILE"
+    echo "$NEW_CLOSE_CMD" >> "$CONFIG_FILE"
 fi
 
 # Check if terminal keybind change was successful
 if grep -q "bindd = SUPER, T, Terminal" "$CONFIG_FILE"; then
-  echo "✓ Successfully changed terminal hotkey to SUPER + T"
+    echo "✓ Successfully changed terminal hotkey to SUPER + T"
 else
-  echo "✗ Warning: Could not change terminal binding"
+    echo "✗ Warning: Could not change terminal binding"
 fi
 
 # Check if SUPER + Q binding exists
 if grep -q "bindd = SUPER, Q.*killactive" "$CONFIG_FILE"; then
-  echo "✓ SUPER + Q close window binding already exists"
+    echo "✓ SUPER + Q close window binding already exists"
 else
-  echo "✓ Successfully added SUPER + Q to close windows"
+    echo "✓ Successfully added SUPER + Q to close windows"
 fi
 
 echo ""
