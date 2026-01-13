@@ -17,7 +17,7 @@ if [ ! -d "$SCRIPTS_FOLDER" ]; then
 fi
 
 # Check if running as root
-if [ "$EUID" -eq 0 ]; then 
+if [ "$EUID" -eq 0 ]; then
     echo "Don't run as root!"
     exit 1
 fi
@@ -25,6 +25,7 @@ fi
 # Run each script
 echo "Step 1: Updating keybindings..."
 bash "$SCRIPTS_FOLDER/update-keybinds.sh"
+# Check if the script failed ($? = exit code of last command, 0 = success, non-zero = failure)
 if [ $? -ne 0 ]; then
     echo "✗ Keybinds script failed!"
     exit 1
