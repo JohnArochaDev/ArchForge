@@ -38,6 +38,12 @@ if ! grep -q "bindd = SUPER, Q.*killactive" "$CONFIG_FILE"; then
     echo "$NEW_CLOSE_CMD" >> "$CONFIG_FILE"
 fi
 
+# Add SUPER + F to toggle floating
+NEW_FLOAT_CMD="bindd = SUPER, F, Toggle floating/tiling, togglefloating,"
+if ! grep -q "bindd = SUPER, F.*togglefloating" "$CONFIG_FILE"; then
+    echo "$NEW_FLOAT_CMD" >> "$CONFIG_FILE"
+fi
+
 # Check if terminal keybind change was successful
 if grep -q "bindd = SUPER, T, Terminal" "$CONFIG_FILE"; then
     echo "✓ Successfully changed terminal hotkey to SUPER + T"
@@ -47,9 +53,16 @@ fi
 
 # Check if SUPER + Q binding exists
 if grep -q "bindd = SUPER, Q.*killactive" "$CONFIG_FILE"; then
-    echo "✓ SUPER + Q close window binding already exists"
+    echo "✓ SUPER + Q close window binding exists"
 else
     echo "✓ Successfully added SUPER + Q to close windows"
+fi
+
+# Check if SUPER + F binding exists
+if grep -q "bindd = SUPER, F.*togglefloating" "$CONFIG_FILE"; then
+    echo "✓ SUPER + F toggle floating binding exists"
+else
+    echo "✓ Successfully added SUPER + F to toggle floating/tiling"
 fi
 
 echo ""
