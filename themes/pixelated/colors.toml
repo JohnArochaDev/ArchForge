@@ -1,25 +1,22 @@
-[colors]
-# Base colors - main background and text
-background = "#191716"    # Main background color
-foreground = "#D7DEDC"    # Main text color
-cursor = "#D7DEDC"        # Cursor color
-
-# Terminal colors (normal intensity)
-black = "#45475a"         # Black text
-red = "#FF6F59"           # Red text/errors
-green = "#a6e3a1"         # Green text/success
-yellow = "#f9e2af"        # Yellow text/warnings
-blue = "#89b4fa"          # Blue text/info
-magenta = "#f5c2e7"       # Magenta text
-cyan = "#94e2d5"          # Cyan text
-white = "#D7DEDC"         # White text
-
-# Terminal colors (bright/bold intensity)
-bright_black = "#585b70"
-bright_red = "#f38ba8"
-bright_green = "#a6e3a1"
-bright_yellow = "#f9e2af"
-bright_blue = "#89b4fa"
-bright_magenta = "#f5c2e7"
-bright_cyan = "#94e2d5"
-bright_white = "#a6adc8"
+accent = "#B38A58"
+cursor = "#B38A58"
+foreground = "#3C5233"
+background = "#0D1F22"
+selection_foreground = "#0D1F22"
+selection_background = "#B38A58"
+color0 = "#0D1F22"
+color1 = "#6F732F"
+color2 = "#264027"
+color3 = "#B38A58"
+color4 = "#3C5233"
+color5 = "#6F732F"
+color6 = "#264027"
+color7 = "#3C5233"
+color8 = "#264027"
+color9 = "#8FA641"
+color10 = "#3C5233"
+color11 = "#D4A870"
+color12 = "#4E6A44"
+color13 = "#8FA641"
+color14 = "#3C5233"
+color15 = "#B38A58"

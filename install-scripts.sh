@@ -67,6 +67,14 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+echo "Step 6: Installing Pixelated theme..."
+bash "$SCRIPTS_FOLDER/theme-pixelated.sh"
+if [ $? -ne 0 ]; then
+    echo "✗ Failed to install theme!"
+    exit 1
+fi
+
+
 echo ""
 echo "============================"
 echo "Arch-Forge  - Complete      "
