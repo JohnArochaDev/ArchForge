@@ -68,12 +68,18 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Step 7: Installing Pixelated theme..."
-bash "$SCRIPTS_FOLDER/soothing.sh"
+bash "$SCRIPTS_FOLDER/theme-pixelated.sh"
 if [ $? -ne 0 ]; then
     echo "✗ Failed to install theme!"
     exit 1
 fi
 
+echo "Step 7: Installing Soothing theme..."
+bash "$SCRIPTS_FOLDER/theme-soothing.sh"
+if [ $? -ne 0 ]; then
+    echo "✗ Failed to install theme!"
+    exit 1
+fi
 
 echo ""
 echo "============================"
