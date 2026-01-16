@@ -1,0 +1,74 @@
+* {
+    color: #d7dedc;
+}
+
+window#waybar {
+    background-color: rgba(25, 23, 22, 0.85);
+    border-bottom: 2px solid rgba(255, 111, 89, 0.3);
+}
+
+/* Workspaces */
+#workspaces button {
+    color: #d7dedc;
+    background-color: rgba(45, 43, 42, 0.6);
+}
+
+#workspaces button.active {
+    background-color: #ff6f59;
+    color: #191716;
+}
+
+#workspaces button.urgent {
+    background-color: #ff6f59;
+    color: #191716;
+}
+
+#workspaces button:hover {
+    background-color: rgba(255, 111, 89, 0.5);
+}
+
+/* All modules - consistent background */
+#clock,
+#battery,
+#network,
+#pulseaudio,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#tray,
+#custom-notification,
+#idle_inhibitor,
+#bluetooth,
+#custom-updates {
+    color: #d7dedc;
+}
+
+/* Battery colors based on state */
+#battery.charging {
+    color: #7d9d88;
+}
+
+#battery.warning:not(.charging) {
+    color: #d4a574;
+}
+
+#battery.critical:not(.charging) {
+    color: #ff6f59;
+}
+
+/* Network disconnected */
+#network.disconnected {
+    color: #8b7d7b;
+}
+
+/* Pulseaudio muted */
+#pulseaudio.muted {
+    color: #8b7d7b;
+}
+
+/* Mode indicator (if used) */
+#mode {
+    background-color: #ff6f59;
+    color: #191716;
+}
