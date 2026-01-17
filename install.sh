@@ -74,7 +74,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "Step 7: Installing Soothing theme..."
+echo "Step 8: Installing Soothing theme..."
 bash "$SCRIPTS_FOLDER/theme-soothing.sh"
 if [ $? -ne 0 ]; then
     echo "✗ Failed to install theme!"
