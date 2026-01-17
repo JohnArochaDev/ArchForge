@@ -4,7 +4,6 @@
 
 window#waybar {
     background-color: rgba(0, 0, 0, 0);
-    border-bottom: 2px solid rgba(155, 125, 133, 0.3);
 }
 
 /* Workspaces */
