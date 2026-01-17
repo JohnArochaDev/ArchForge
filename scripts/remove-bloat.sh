@@ -56,7 +56,6 @@ PACKAGES_TO_REMOVE=(
     # Misc/unknown
     "aether"            # P2P forum software
     "tobi-try"          # Tool for repetitive directories
-    "impala"            # Terminal UI framework
 )
 
 # Remove each individual package
