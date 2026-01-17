@@ -29,10 +29,6 @@ PACKAGES_TO_REMOVE=(
     # System info display
     "neofetch"
     
-    # Modern CLI tools (I like old fashioned cmds)
-    "bat"           # Better cat with syntax highlighting
-    "fzf"           # Fuzzy finder for interactive search
-    
     # Terminal emulators (not using, using ghostty)
     "alacritty"
     
