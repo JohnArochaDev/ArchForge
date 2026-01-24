@@ -81,6 +81,13 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+echo "Step 9: Installing window configurations..."
+bash "$SCRIPTS_FOLDER/configure-app-windows.sh
+if [ $? -ne 0 ]; then
+    echo "✗ Failed to configure windows"
+    exit 1
+fi
+
 echo ""
 echo "============================"
 echo "Arch-Forge  - Complete      "
